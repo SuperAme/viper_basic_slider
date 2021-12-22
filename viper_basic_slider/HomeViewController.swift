@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorValueDelegate {
-    func onColorValueChanged() -> ()
+    func onColorValueChange() -> ()
 }
 
 class HomeViewController: UIViewController {
@@ -19,54 +19,44 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var lblRgbValue: UILabel!
     
+    var presenter: HomeViewPresentation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rgb = loadCurrentColor()
-        
-        sliderRed.value = Float(rgb.0)
-        sliderGreen.value = Float(rgb.1)
-        sliderBlue.value = Float(rgb.2)
-        
-        lblRgbValue.text = "RGB (\(rgb.0), \(rgb.1), \(rgb.2))"
-        
-        view.backgroundColor = UIColor(red: rgb.0/255, green: rgb.1/255, blue: rgb.2/255, alpha: 1.0)
+        loadCurrentColor()
     }
 
     @IBAction func onRedValueChanged(_ sender: UISlider) {
         print("Red value received: \(sender.value)")
-        onColorValueChanged()
+        onColorValueChange()
     }
     
     @IBAction func onGreenValueChanged(_ sender: UISlider) {
         print("Green value received: \(sender.value)")
-        onColorValueChanged()
+        onColorValueChange()
     }
     
     @IBAction func onBlueValueChanged(_ sender: UISlider) {
         print("Blue value received: \(sender.value)")
-        onColorValueChanged()
+        onColorValueChange()
     }
     
     func saveCurrentColor(rgb: (CGFloat,CGFloat,CGFloat)) -> (Void) {
-        UserDefaults.standard.set(rgb.0, forKey: "Red")
-        UserDefaults.standard.set(rgb.1, forKey: "Green")
-        UserDefaults.standard.set(rgb.2, forKey: "Blue")
-        
         print("Current Color Saved")
+        presenter?.onColorValueChange(rgb: rgb)
     }
     
-    func loadCurrentColor() -> (CGFloat,CGFloat,CGFloat) {
-        let red = CGFloat(UserDefaults.standard.float(forKey: "Red"))
-        let green = CGFloat(UserDefaults.standard.float(forKey: "Green"))
-        let blue = CGFloat(UserDefaults.standard.float(forKey: "Blue"))
+    func loadCurrentColor() -> () {
+        print("View Controller delegating loadCurrentColor to presenter")
         
-        return (red, green, blue)
+        presenter?.onLoadCurrentColor()
     }
     
 }
 
 extension HomeViewController: ColorValueDelegate {
-    func onColorValueChanged() {
+    
+    func onColorValueChange() {
         
         let step: Float = 1
         let red = CGFloat(round(sliderRed.value / step) * step)
@@ -79,5 +69,19 @@ extension HomeViewController: ColorValueDelegate {
         
         saveCurrentColor(rgb: (red,green,blue))
     }
+}
+
+extension HomeViewController: HomeView {
+    func loadCurrentColor(rgb: (CGFloat, CGFloat, CGFloat)) {
+        sliderRed.value = Float(rgb.0)
+        sliderGreen.value = Float(rgb.1)
+        sliderBlue.value = Float(rgb.2)
+
+        lblRgbValue.text = "RGB (\(rgb.0), \(rgb.1), \(rgb.2))"
+
+        self.view.backgroundColor = UIColor(red: rgb.0/255, green: rgb.1/255, blue: rgb.2/255, alpha: 1.0)
+    }
+    
+    
 }
 

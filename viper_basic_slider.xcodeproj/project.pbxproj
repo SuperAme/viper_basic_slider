@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C39A85627737E8B00FA269C /* AppColorDaoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C39A85527737E8B00FA269C /* AppColorDaoEntity.swift */; };
 		9C7379E22772333200F8FF58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7379E12772333200F8FF58 /* AppDelegate.swift */; };
 		9C7379E42772333200F8FF58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7379E32772333200F8FF58 /* SceneDelegate.swift */; };
 		9C7379E62772333200F8FF58 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7379E52772333200F8FF58 /* HomeViewController.swift */; };
 		9C7379E92772333200F8FF58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7379E72772333200F8FF58 /* Main.storyboard */; };
 		9C7379EB2772333300F8FF58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C7379EA2772333300F8FF58 /* Assets.xcassets */; };
 		9C7379EE2772333300F8FF58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7379EC2772333300F8FF58 /* LaunchScreen.storyboard */; };
+		9C7379F6277271B200F8FF58 /* HomeViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7379F5277271B200F8FF58 /* HomeViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C39A85527737E8B00FA269C /* AppColorDaoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorDaoEntity.swift; sourceTree = "<group>"; };
 		9C7379DE2772333200F8FF58 /* viper_basic_slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viper_basic_slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7379E12772333200F8FF58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C7379E32772333200F8FF58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		9C7379EA2772333300F8FF58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C7379ED2772333300F8FF58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C7379EF2772333300F8FF58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C7379F5277271B200F8FF58 /* HomeViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				9C7379EA2772333300F8FF58 /* Assets.xcassets */,
 				9C7379EC2772333300F8FF58 /* LaunchScreen.storyboard */,
 				9C7379EF2772333300F8FF58 /* Info.plist */,
+				9C7379F5277271B200F8FF58 /* HomeViewBuilder.swift */,
+				9C39A85527737E8B00FA269C /* AppColorDaoEntity.swift */,
 			);
 			path = viper_basic_slider;
 			sourceTree = "<group>";
@@ -140,7 +146,9 @@
 			files = (
 				9C7379E62772333200F8FF58 /* HomeViewController.swift in Sources */,
 				9C7379E22772333200F8FF58 /* AppDelegate.swift in Sources */,
+				9C39A85627737E8B00FA269C /* AppColorDaoEntity.swift in Sources */,
 				9C7379E42772333200F8FF58 /* SceneDelegate.swift in Sources */,
+				9C7379F6277271B200F8FF58 /* HomeViewBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
